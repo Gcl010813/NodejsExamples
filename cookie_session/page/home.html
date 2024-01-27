@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>home</title>
+  </head>
+  <body>
+    <h1>欢迎</h1>
+    <button class="btn_out">退出登录</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        // 进入页面便执行
+        $.get('/api/username', function (res) {
+          if (res.status != 0) {
+            console.log(res)
+            alert('未登录')
+            location.href = './login.html'
+          } else {
+            alert('已经登录成功')
+          }
+        })
+        $('.btn_out').on('click', function () {
+          $.post('/api/logout', function (res) {
+            console.log(res)
+            if (res.status == 0) {
+              location.href = './login.html'
+            }
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

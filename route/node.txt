@@ -1,0 +1,9 @@
+中间件分类(路由之前配置)
+  ㈠ 应用级别中间件
+  ㈡ 路由级别中间件
+  ㈢ 错误级别中间件(唯一放置于路由之后的中间件)
+  ㈣ 内置中间件 express 版本4.16.0之后
+    ① express.static(无版本限制 兼容)
+    ② express.json 解析JSON格式的请求体数据
+    ③ express.urlencoded 解析URL-encoded(x-www-form-urlencoded)格式的请求体数据  
+  ㈤ 第三方中间件 按需下载使用(表单提交数据需要提前解析（㈣-②方式或者第三方中间件body-parser）才能使用req.body打印出来)

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button class="btn_get">GET</button>
+    <button class="btn_post">POST</button>
+    <button class="btn_jsonp">jsonp</button>
+    <script>
+      $(function () {
+        $('.btn_get').on('click', function () {
+          $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1:80/api/get',
+            data: {
+              name: 'xiaoGuo',
+              age: 23,
+            },
+            success: function (res) {
+              console.log(res)
+            },
+          })
+        })
+        $('.btn_post').on('click', function () {
+          $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:80/api/post',
+            data: {
+              name: 'xiaoGuo',
+              age: 23,
+            },
+            success: function (res) {
+              console.log(res)
+            },
+          })
+        })
+        $('.btn_jsonp').on('click', function () {
+          $.ajax({
+            type: 'GET',
+            url: 'http://127.0.0.1:80/api/jsonp',
+            dataType:'jsonp',
+            success: function (res) {
+              console.log(res)
+            },
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

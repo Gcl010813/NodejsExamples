@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+  </head>
+  <body>
+    <div>
+      <div class="mb-3">
+        <label for="" class="form-label">账号</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="username"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">密码</label>
+        <input
+          type="text"
+          class="form-control"
+          name=""
+          id="password"
+          aria-describedby="helpId"
+          placeholder=""
+        />
+      </div>
+      <button type="submit" class="btn btn-primary submit">登录</button>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script>
+        $(function () {
+          $('.submit').on('click', function () {
+            const username = $('#username').val()
+            const password = $('#password').val()
+            $.ajax({
+            type: 'POST',
+            url: 'http://127.0.0.1:80/api/login',
+            data: {
+              username: username,
+              password: password,
+            },
+            success: function (res) {
+              console.log(res)
+              if(res.status==0){
+                location.href='./home.html'
+              }
+            },
+          })
+          })
+        })
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+跨域问题解决方式
+（一）CORS-主流
+（二）JSONP-有缺陷仅支持GET
+CROS响应头部：
+  Access-Control-Allow-Origin
+      eg: res.setHeader('Access-Control-Allow-Origin','*')  允许所有的请求
+      eg: res.setHeader('Access-Control-Allow-Origin','http://itxiaoGuo.cn')  只允许来自http://itxiaoGuo.cn的请求
+  
+  Access-Control-Allow-Headers(默认仅支持9种)
+      eg: res.setHeader('Access-Control-Allow-Headers','newHeader1,newHeader2')  允许新的请求头
+
+  Access-Control-Allow-Methods(默认仅GET,POST,HEAD)
+      eg: res.setHeader('Access-Control-Allow-Methods','*')  允许所有的请求方式
+      eg: res.setHeader('Access-Control-Allow-Methods','newMethod')  允许新的请求方式
+
